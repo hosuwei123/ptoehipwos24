@@ -190,16 +190,16 @@ def get_tab02(url0,headers): #goodinfo每月收入
 def seasoneps(ur20,headers):#每季收入
         
     #-------下拉式選單(桌機用)
-    driver = webdriver.Chrome()#建立webdriver，傳入剛剛所下載的「瀏覽器驅動程式路徑」及「瀏覽器設定(chrome_options)」，其中的「瀏覽器驅動程式路徑」一定要傳入，而「瀏覽器設定(chrome_options)」則可視情況傳入，為選擇性的。
+    #driver = webdriver.Chrome()#建立webdriver，傳入剛剛所下載的「瀏覽器驅動程式路徑」及「瀏覽器設定(chrome_options)」，其中的「瀏覽器驅動程式路徑」一定要傳入，而「瀏覽器設定(chrome_options)」則可視情況傳入，為選擇性的。
     #-------下拉式選單(桌機用)
       
     #-------下拉式選單(heroku用)
-    # chrome_options = webdriver.ChromeOptions()#建立webdriver物件，傳入剛剛所下載的「瀏覽器驅動程式路徑」及「瀏覽器設定(chrome_options)」，其中的「瀏覽器驅動程式路徑」一定要傳入，而「瀏覽器設定(chrome_options)」則可視情況傳入，為選擇性的。
-    # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    # chrome_options.add_argument("--headless") #無頭模式
-    # chrome_options.add_argument("--disable-dev-shm-usage")#防彈跳視窗
-    # chrome_options.add_argument("--no-sandbox")#防彈跳視窗
-    # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    chrome_options = webdriver.ChromeOptions()#建立webdriver物件，傳入剛剛所下載的「瀏覽器驅動程式路徑」及「瀏覽器設定(chrome_options)」，其中的「瀏覽器驅動程式路徑」一定要傳入，而「瀏覽器設定(chrome_options)」則可視情況傳入，為選擇性的。
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless") #無頭模式
+    chrome_options.add_argument("--disable-dev-shm-usage")#防彈跳視窗
+    chrome_options.add_argument("--no-sandbox")#防彈跳視窗
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     #-------下拉式選單(heroku用)---------
     
     driver.get(ur20)#要抓取網址
