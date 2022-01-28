@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    
+    <title>「主人與狗」異想世界！</title>
+        <!-- 響應式網站 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Boostrap 導入程式 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <!-- 連接css調顏色 -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    <h1>歡迎來到「老人與狗」異想世界！</h1>
+    <table border="1">
+      <h1>你查詢的資料：{{ stockname }}</h1>
+      <thead>
+        {% for nmp2 in nmp_t0 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n0 %}
+        <tr>
+          {% for nlen in range(len_0) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+    <table border="1">
+      <thead>
+        {% for nmp2 in nmp_t1 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n1 %}
+        <tr>
+          {% for nlen in range(len_1) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>     
+    <table border="1">
+      <thead>
+        {% for nmp2 in nmp_t2 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n2 %}
+        <tr>
+          {% for nlen in range(len_2) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>   
+    
+    <table border="2">
+      <thead>
+        {% for nmp2 in nmp_t5 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n5 %}
+        <tr>
+          {% for nlen in range(len_5) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>   
+
+
+
+    <table border="2">
+      <thead>
+        {% for nmp2 in nmp_t3 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n3 %}
+        <tr>
+          {% for nlen in range(len_3) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+    <table border="2">
+      <thead>
+        {% for nmp2 in nmp_t4 %} 
+        <th>{{ nmp2 }}</th>
+        {% endfor %}
+      </thead>
+      <tbody>
+        {% for nmp1 in nmp_n4 %}
+        <tr>
+          {% for nlen in range(len_4) %}
+          <td>{{ nmp1[nlen] }}</td>
+          {% endfor %}   
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table> 
+      <h3>★前一日<font color="#FF0000">{{ nmp_t0[2] }}:{{ nmp_n0[0][2] }}元</font></h3>
+      <form action = "{{ url_for('addrec') }}" method = "POST" target="iframe">
+      <fieldset style="width:600px">
+      <legend>預測股價輸入</legend>
+      <!-- 表單測試區 -->
+    
+      <input type = "hidden" name = "stockname" value= "{{ stockname }}"/><br>
+      <input type = "hidden" name = "price" value= "{{ nmp_n0[0][2] }}"/><br>
+      請輸入EPS:<br>
+      <input type = "text" name = "EPS" /></br>
+
+      請輸入本益比:<br>
+      <input type = "text" name = "PE" /><br>
+
+      <input type = "submit" value = "提交" /><br>
+   
+
+    </fieldset>
+   </form>
+ 
+     
+   
+    <iframe id="iframe" name="iframe" style="width:600px" scrolling="no" >
+    <legend>預測結果</legend>
+
+   
+    </iframe>
+
+
+{% endblock %}
+</body>
+</html>
